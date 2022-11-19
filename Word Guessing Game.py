@@ -10,8 +10,6 @@ word = random.choice(words).upper()
 while "-" in word or " " in word:
     word = random.choice(words).upper()
 
-word ="TERRIBLE"
-
 LettersInWord = list(word.upper())
 Alphabet = list(string.ascii_uppercase)
 UsedLetters = list()
