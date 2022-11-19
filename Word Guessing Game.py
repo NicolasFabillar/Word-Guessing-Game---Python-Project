@@ -10,6 +10,8 @@ word = random.choice(words).upper()
 while "-" in word or " " in word:
     word = random.choice(words).upper()
 
+word ="TERRIBLE"
+
 LettersInWord = list(word.upper())
 Alphabet = list(string.ascii_uppercase)
 UsedLetters = list()
@@ -53,7 +55,9 @@ while len(LettersInWord) != 0 and lives != 0:
         if FreeLetters > 0:
             FreeLetter = random.choice(LettersInWord)
             UsedLetters.append(FreeLetter)
-            LettersInWord.remove(FreeLetter)
+            for Letter in LettersInWord:
+                if FreeLetter in LettersInWord:
+                    LettersInWord.remove(FreeLetter)
             FreeLetters -= 1
         else:
             print("\n\tNo more Tips left.")
