@@ -14,15 +14,18 @@ LettersInWord = list(word.upper())
 Alphabet = list(string.ascii_uppercase)
 UsedLetters = list()
 
-while True:
+def CurrentWord():
     WordDisplay = list()
     for Letter in word:
         if Letter in UsedLetters:
             WordDisplay.append(Letter)
         else:
             WordDisplay.append("-")
+    return WordDisplay
 
-    print("\nThe word is: ", ' '.join(WordDisplay))
+while len(LettersInWord) > 0:
+    CurrentWord()
+    print("\nThe word is: ", ' '.join(CurrentWord()))
     UserInput = input("Enter a letter to guess the word: ").upper()
     if UserInput in UsedLetters:
         print("\n\tYou already chose that letter. Choose a different one. ")
@@ -30,9 +33,13 @@ while True:
     if UserInput in Alphabet and UserInput not in UsedLetters:
         UsedLetters.append(UserInput)
         if UserInput in LettersInWord:
-            LettersInWord.remove(UserInput)
+            for Letter in LettersInWord:
+                if UserInput in LettersInWord:
+                    LettersInWord.remove(UserInput)
         else:
             print("\n\tWrong Guess!")
+
+print("BINGO! The word is: ", ' '.join(CurrentWord()))
 
 
 
