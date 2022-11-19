@@ -26,10 +26,9 @@ def CurrentWord():
             WordDisplay.append("-")
     return WordDisplay
 
-while len(LettersInWord) > 0 and lives > 0:
+while len(LettersInWord) != 0 and lives != 0:
     print("\n==================================================================================")
-    print("You got", lives, "lives left.")
-    print("You got", FreeLetters, "Tips left.")
+    print("STATUS: \n\tLife:", lives, "\n\tTips:", FreeLetters)
     print("The letters you used are:",' '.join(UsedLetters))
     print("The word is: ", ' '.join(CurrentWord()))
     UserInput = input("Press '0' to exit, Press '1' to have a tip or Enter a letter to guess the word: ").upper()
