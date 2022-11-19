@@ -24,9 +24,9 @@ def CurrentWord():
     return WordDisplay
 
 while len(LettersInWord) > 0:
-    CurrentWord()
-    print("\nThe word is: ", ' '.join(CurrentWord()))
-    UserInput = input("Enter a letter to guess the word: ").upper()
+    print("\nThe used letters are:",' '.join(UsedLetters))
+    print("The word is: ", ' '.join(CurrentWord()))
+    UserInput = input("Press '0' to exit or Enter a letter to guess the word: ").upper()
     if UserInput in UsedLetters:
         print("\n\tYou already chose that letter. Choose a different one. ")
 
@@ -38,6 +38,10 @@ while len(LettersInWord) > 0:
                     LettersInWord.remove(UserInput)
         else:
             print("\n\tWrong Guess!")
+
+    if UserInput == "0":
+        print("Game Over! ")
+        exit()
 
 print("BINGO! The word is: ", ' '.join(CurrentWord()))
 
