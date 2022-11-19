@@ -33,7 +33,7 @@ while len(LettersInWord) > 0 and lives > 0:
     if UserInput in UsedLetters:
         print("\n\tYou already chose that letter. Choose a different one. ")
 
-    if UserInput in Alphabet and UserInput not in UsedLetters:
+    elif UserInput in Alphabet and UserInput not in UsedLetters:
         UsedLetters.append(UserInput)
         if UserInput in LettersInWord:
             for Letter in LettersInWord:
@@ -43,10 +43,12 @@ while len(LettersInWord) > 0 and lives > 0:
             print("\n\tWrong Guess!")
             lives -=1
 
-    if UserInput == "0":
-        print("Game Over! ")
+    elif UserInput == "0":
+        print("\nGame Over! ")
         exit()
 
+    else:
+        print("\nEnter a valid input! 0 or letters only.")
 
 if len(LettersInWord) == 0:
     print("\nBINGO! The word is: ", ' '.join(CurrentWord()))
