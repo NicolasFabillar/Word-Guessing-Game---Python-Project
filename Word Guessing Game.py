@@ -22,20 +22,17 @@ while True:
         else:
             WordDisplay.append("-")
 
-    print("The word is: ", ' '.join(WordDisplay))
+    print("\nThe word is: ", ' '.join(WordDisplay))
     UserInput = input("Enter a letter to guess the word: ").upper()
     if UserInput in UsedLetters:
-        print("\nYou already chose that letter. Choose a different one. ")
+        print("\n\tYou already chose that letter. Choose a different one. ")
 
     if UserInput in Alphabet and UserInput not in UsedLetters:
         UsedLetters.append(UserInput)
         if UserInput in LettersInWord:
             LettersInWord.remove(UserInput)
         else:
-            print("\nWrong Guess!")
-
-
-    print(LettersInWord)
+            print("\n\tWrong Guess!")
 
 
 
