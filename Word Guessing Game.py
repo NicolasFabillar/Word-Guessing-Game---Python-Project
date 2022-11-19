@@ -29,6 +29,7 @@ def CurrentWord():
 while len(LettersInWord) > 0 and lives > 0:
     print("\n==================================================================================")
     print("You got", lives, "lives left.")
+    print("You got", FreeLetters, "Tips left.")
     print("The letters you used are:",' '.join(UsedLetters))
     print("The word is: ", ' '.join(CurrentWord()))
     UserInput = input("Press '0' to exit, Press '1' to have a tip or Enter a letter to guess the word: ").upper()
@@ -43,16 +44,20 @@ while len(LettersInWord) > 0 and lives > 0:
                     LettersInWord.remove(UserInput)
         else:
             print("\n\tWrong Guess!")
-            lives -=1
+            lives -= 1
 
     elif UserInput == "0":
         print("\nGame Over! The word is:", word)
         exit()
 
     elif UserInput == "1":
-        FreeLetter = random.choice(LettersInWord)
-        UsedLetters.append(FreeLetter)
-        LettersInWord.remove(FreeLetter)
+        if FreeLetters > 0:
+            FreeLetter = random.choice(LettersInWord)
+            UsedLetters.append(FreeLetter)
+            LettersInWord.remove(FreeLetter)
+            FreeLetters -= 1
+        else:
+            print("\n\tNo more Tips left.")
 
     else:
         print("\nEnter a valid input! 0 or letters only.")
@@ -62,9 +67,3 @@ if len(LettersInWord) == 0:
 
 if lives == 0:
     print("\nGame Over! You got no more life. The word is:", word)
-
-
-
-
-
-
