@@ -26,7 +26,8 @@ def CurrentWord():
     return WordDisplay
 
 while len(LettersInWord) > 0 and lives > 0:
-    print("\nYou got", lives, " lives left.")
+    print("\n===================================================")
+    print("You got", lives, "lives left.")
     print("The used letters are:",' '.join(UsedLetters))
     print("The word is: ", ' '.join(CurrentWord()))
     UserInput = input("Press '0' to exit or Enter a letter to guess the word: ").upper()
