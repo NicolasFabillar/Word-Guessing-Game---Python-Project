@@ -14,6 +14,8 @@ LettersInWord = list(word.upper())
 Alphabet = list(string.ascii_uppercase)
 UsedLetters = list()
 
+lives = 7
+
 def CurrentWord():
     WordDisplay = list()
     for Letter in word:
@@ -23,8 +25,9 @@ def CurrentWord():
             WordDisplay.append("-")
     return WordDisplay
 
-while len(LettersInWord) > 0:
-    print("\nThe used letters are:",' '.join(UsedLetters))
+while len(LettersInWord) > 0 and lives > 0:
+    print("\nYou got", lives, " lives left.")
+    print("The used letters are:",' '.join(UsedLetters))
     print("The word is: ", ' '.join(CurrentWord()))
     UserInput = input("Press '0' to exit or Enter a letter to guess the word: ").upper()
     if UserInput in UsedLetters:
@@ -38,12 +41,18 @@ while len(LettersInWord) > 0:
                     LettersInWord.remove(UserInput)
         else:
             print("\n\tWrong Guess!")
+            lives -=1
 
     if UserInput == "0":
         print("Game Over! ")
         exit()
 
-print("BINGO! The word is: ", ' '.join(CurrentWord()))
+
+if len(LettersInWord) == 0:
+    print("\nBINGO! The word is: ", ' '.join(CurrentWord()))
+
+if lives == 0:
+    print("\nGame Over! You got no more life. ")
 
 
 
