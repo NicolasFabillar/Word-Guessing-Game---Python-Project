@@ -64,7 +64,7 @@ while len(LettersInWord) != 0 and lives != 0:
         print("\nEnter a valid input! 0 or letters only.")
 
 if len(LettersInWord) == 0:
-    print("\nBINGO! The word is: ", ' '.join(CurrentWord()))
+    print("\nBINGO! The word is: ", word)
 
 if lives == 0:
     print("\nGame Over! You got no more life. The word is:", word)
